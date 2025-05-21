@@ -4,7 +4,6 @@
 sudo apt update
 sudo apt install docker.io
 
-sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 ```
 
@@ -17,5 +16,26 @@ sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin dock
 
 #source  /usr/local/otp-19.3.6.13/activate
 docker run -it --rm --platform=linux/amd64  -v .:/app --entrypoint bash kazoo-builder
+
+```
+
+
+```
+docker login
+
+docker tag kazoo-builder romonzamanbd/kazoo_builder:latest
+docker push romonzamanbd/kazoo_builder:latest
+
+```
+
+
+```
+
+docker run -it --rm --platform=linux/amd64  -v .:/app --entrypoint bash kazoo-builder
+
+source  /usr/local/otp-19.3.6.13/activate
+
+cd /app/
+make
 
 ```
